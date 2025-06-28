@@ -10,7 +10,7 @@ export default function Home() {
         dir deine Pflege zusammen - sie ist in deiner heutigen Behaldnung
         inklusive
       </p>
-      <a>Los Gehts</a>
+      <a className="link-button">Los Gehts</a>
     </main>
   );
 }
