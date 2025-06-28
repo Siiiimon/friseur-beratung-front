@@ -39,10 +39,12 @@ body {
 
 .heading {
   font: var(--font-heading);
+  color: var(--color-text);
 }
 
 .text {
   font: var(--font-primary);
+  color: var(--color-text);
 }
 
 .link-button {
