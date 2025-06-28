@@ -12,7 +12,7 @@ export default function Home() {
         Stell dir deine Pflege zusammen - sie ist in deiner heutigen Behandlung
         inklusive
       </p>
-      <a className={`${styles.beginButton} link-button`}>Los Gehts</a>
+      <a className={`${styles.beginButton} link-button`}>Los Geht&apos;s</a>
     </main>
   );
 }
