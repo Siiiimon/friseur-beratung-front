@@ -1,6 +1,5 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-background: #dff7f2;
   --color-primary: #fdd9d9;
   --color-text: #2e2e2e;
 
@@ -9,16 +8,8 @@
   --font-button: 500 18px "Inter", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
+  background: var(--color-background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
