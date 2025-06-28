@@ -2,11 +2,3 @@
   display: flex;
   flex-direction: column;
 }
-
-.heading {
-  font: var(--font-heading);
-}
-
-.text {
-  font: var(--font-primary);
-}

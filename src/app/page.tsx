@@ -4,8 +4,8 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <main className={styles.content}>
-      <h1>Schön, dass du da bist.</h1>
-      <p>
+      <h1 className="heading">Schön, dass du da bist.</h1>
+      <p className="text">
         Probier heute aus, was dir gefällt: Volumen? Glanz? Locken? Glatt? Stell
         dir deine Pflege zusammen - sie ist in deiner heutigen Behaldnung
         inklusive

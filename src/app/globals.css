@@ -37,6 +37,14 @@ body {
   margin: 0;
 }
 
+.heading {
+  font: var(--font-heading);
+}
+
+.text {
+  font: var(--font-primary);
+}
+
 .link-button {
   font: var(--font-button);
   color: var(--color-text);
