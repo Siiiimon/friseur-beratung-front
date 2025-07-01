@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -11,9 +12,12 @@ export default function Home() {
         Stell dir deine Pflege zusammen - sie ist in deiner heutigen Behandlung
         inklusive
       </p>
-      <a href="#" className={`${styles.beginButton} link-button`}>
+      <Link
+        href="/consultation"
+        className={`${styles.beginButton} link-button`}
+      >
         Los Geht&apos;s
-      </a>
+      </Link>
     </main>
   );
 }
