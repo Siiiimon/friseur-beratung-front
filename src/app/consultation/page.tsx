@@ -1,8 +1,13 @@
-import Question from "../ui/consultation/question";
+import { Suspense } from "react";
+import Questionnaire from "../ui/questionnaire/questionnaire";
 
 export default async function ConsultationPage() {
   const res = await fetch(`${process.env.BACKEND_URL}/questionnaire/new`);
-  const { _id, questions } = await res.json();
+  const questionnaire = res.json();
 
-  return <Question question={questions[0]}></Question>;
+  return (
+    <Suspense fallback={<div>loading...</div>}>
+      <Questionnaire questionnaire={questionnaire} />
+    </Suspense>
+  );
 }

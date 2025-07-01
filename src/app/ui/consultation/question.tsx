@@ -1,26 +1,24 @@
 import styles from "./question.module.css";
-
-type Choice = {
-  id: string;
-  label: string;
-};
+import type { QuestionType } from "@/types/questionnaire";
 
 type QuestionProps = {
-  question: {
-    id: string;
-    label: string;
-    choices: Choice[];
-  };
+  question: QuestionType;
+  onAnswer: (questionId: string, choiceId: string) => void;
 };
 
-export default function Question({ question }: QuestionProps) {
+export default function Question({ question, onAnswer }: QuestionProps) {
   return (
     <div className={styles.question}>
       <h1 className={`${styles.label} heading`}>{question.label}</h1>
       <ul className={styles.choiceList}>
         {question.choices.map((choice) => (
-          <li className={`${styles.choice} button`} key={choice.id}>
-            {choice.label}
+          <li key={choice.id}>
+            <button
+              className={`${styles.choice} button`}
+              onClick={() => onAnswer(question.id, choice.id)}
+            >
+              {choice.label}
+            </button>
           </li>
         ))}
       </ul>
