@@ -38,7 +38,7 @@ body {
   color: var(--color-text);
 }
 
-.link-button {
+.button {
   font: var(--font-button);
   color: var(--color-text);
   background-color: var(--color-primary);

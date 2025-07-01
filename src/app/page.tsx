@@ -12,10 +12,7 @@ export default function Home() {
         Stell dir deine Pflege zusammen - sie ist in deiner heutigen Behandlung
         inklusive
       </p>
-      <Link
-        href="/consultation"
-        className={`${styles.beginButton} link-button`}
-      >
+      <Link href="/consultation" className={`${styles.beginButton} button`}>
         Los Geht&apos;s
       </Link>
     </main>
