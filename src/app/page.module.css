@@ -16,4 +16,5 @@
 .beginButton {
   margin-top: 128px;
   cursor: pointer;
+  text-decoration: none;
 }
