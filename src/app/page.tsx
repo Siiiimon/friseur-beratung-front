@@ -1,7 +1,10 @@
+"use client";
 import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function Home() {
+  sessionStorage.clear();
+
   return (
     <main className={styles.content}>
       <h1 className={`${styles.greeting} heading`}>Schön, dass du da bist.</h1>
