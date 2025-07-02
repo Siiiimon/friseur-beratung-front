@@ -6,16 +6,16 @@ import styles from "./page.module.css";
 import { ResultType } from "@/types/submissionResult";
 import Recommendation from "../ui/recommendation/recommendation";
 
+if (!process.env.NEXT_PUBLIC_BACKEND_URL) {
+  throw new Error("no backend url has been configured");
+}
+
 export default function ResultPage() {
   const [result, setResult] = useState<ResultType | null>(null);
   const [questionId, setQuestionId] = useState<string | null>(null);
   const [answerSheet, setAnswerSheet] = useState<
     { id: string; selectedChoices: string[] }[] | null
   >(null);
-
-  if (!process.env.NEXT_PUBLIC_BACKEND_URL) {
-    throw new Error("no backend url has been configured");
-  }
 
   useEffect(() => {
     const storedResponses = sessionStorage.getItem(RESPONSES_KEY);
