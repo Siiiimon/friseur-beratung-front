@@ -1,0 +1,22 @@
+.card {
+  border-radius: 8px;
+  background-color: var(--color-background-secondary);
+  padding: 18px;
+  text-align: center;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.category {
+  font-size: 12px;
+  font-weight: 300;
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+.description {
+  font-size: 12px;
+}

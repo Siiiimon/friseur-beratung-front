@@ -1,12 +1,14 @@
 import { Suspense } from "react";
 import Questionnaire from "../ui/questionnaire/questionnaire";
 
-export default async function ConsultationPage() {
-  if (!process.env.BACKEND_URL) {
-    throw new Error("no backend url has been configured");
-  }
+if (!process.env.NEXT_PUBLIC_BACKEND_URL) {
+  throw new Error("no backend url has been configured");
+}
 
-  const res = await fetch(`${process.env.BACKEND_URL}/questionnaire/new`);
+export default async function ConsultationPage() {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/questionnaire/new`,
+  );
 
   if (!res.ok) {
     throw new Error(
