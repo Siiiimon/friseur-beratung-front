@@ -68,7 +68,7 @@ export default function ResultPage() {
       setResult(await res.json());
     }
     submit();
-  });
+  }, [answerSheet, questionId]);
 
   return (
     <div className={`${styles.content}`}>
