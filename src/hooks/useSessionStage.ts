@@ -1,7 +1,6 @@
 "use client";
+import { RESPONSES_KEY } from "@/constants";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-
-export const RESPONSES_KEY = "responses";
 
 export function useSessionStoredResponses(
   initial: Record<string, string[] | null>,
