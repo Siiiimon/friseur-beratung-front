@@ -18,7 +18,9 @@ export default function Questionnaire({
   );
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  sessionStorage.setItem(ID_KEY, id);
+  useEffect(() => {
+    sessionStorage.setItem(ID_KEY, id);
+  }, [id]);
 
   const handleAnswer = useCallback(
     (questionId: string, choiceId: string[]) => {

@@ -8,43 +8,52 @@ import Recommendation from "../ui/recommendation/recommendation";
 
 export default function ResultPage() {
   const [result, setResult] = useState<ResultType | null>(null);
+  const [questionId, setQuestionId] = useState<string | null>(null);
+  const [answerSheet, setAnswerSheet] = useState<
+    { id: string; selectedChoices: string[] }[] | null
+  >(null);
 
   if (!process.env.NEXT_PUBLIC_BACKEND_URL) {
     throw new Error("no backend url has been configured");
   }
 
-  const storedResponses = sessionStorage.getItem(RESPONSES_KEY);
-  if (!storedResponses) {
-    throw new Error("no responses have been set");
-  }
+  useEffect(() => {
+    const storedResponses = sessionStorage.getItem(RESPONSES_KEY);
+    if (!storedResponses) {
+      throw new Error("no responses have been set");
+    }
 
-  const id = sessionStorage.getItem(ID_KEY);
-  if (!id) {
-    throw new Error("id has not been set");
-  }
+    const id = sessionStorage.getItem(ID_KEY);
+    if (!id) {
+      throw new Error("id has not been set");
+    }
+    setQuestionId(id);
 
-  const responses: Record<string, string[] | null> =
-    JSON.parse(storedResponses);
-  if (Object.values(responses).some((res) => res == null)) {
-    throw new Error("not all questions have been given an answer");
-  }
+    const responses: Record<string, string[] | null> =
+      JSON.parse(storedResponses);
+    if (Object.values(responses).some((res) => res == null)) {
+      throw new Error("not all questions have been given an answer");
+    }
 
-  const answerSheet = Object.entries(responses).map(
-    ([id, selectedChoices]) => ({
+    const sheet = Object.entries(responses).map(([id, selectedChoices]) => ({
       id,
       selectedChoices: selectedChoices || [],
-    }),
-  );
+    }));
+
+    setAnswerSheet(sheet);
+  }, []);
 
   useEffect(() => {
     async function submit() {
+      if (!questionId || !answerSheet) return;
+
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/questionnaire/submit`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            id,
+            questionId,
             responses: answerSheet,
           }),
         },

@@ -1,9 +1,12 @@
 "use client";
 import Link from "next/link";
 import styles from "./page.module.css";
+import { useEffect } from "react";
 
 export default function Home() {
-  sessionStorage.clear();
+  useEffect(() => {
+    sessionStorage.clear();
+  }, []);
 
   return (
     <main className={styles.content}>
