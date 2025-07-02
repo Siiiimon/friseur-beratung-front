@@ -41,7 +41,7 @@ export default function Questionnaire({
         router.push("/result");
       }
     }
-  });
+  }, [currentIndex, questions.length, responses, router]);
 
   return (
     <main>
