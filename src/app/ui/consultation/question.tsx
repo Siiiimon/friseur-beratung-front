@@ -3,7 +3,7 @@ import type { QuestionType } from "@/types/questionnaire";
 
 type QuestionProps = {
   question: QuestionType;
-  onAnswer: (questionId: string, choiceId: string) => void;
+  onAnswer: (questionId: string, choiceId: string[]) => void;
 };
 
 export default function Question({ question, onAnswer }: QuestionProps) {
@@ -15,7 +15,7 @@ export default function Question({ question, onAnswer }: QuestionProps) {
           <li key={choice.id}>
             <button
               className={`${styles.choice} button`}
-              onClick={() => onAnswer(question.id, choice.id)}
+              onClick={() => onAnswer(question.id, [choice.id])}
             >
               {choice.label}
             </button>
