@@ -1,9 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
 import { ID_KEY, RESPONSES_KEY } from "@/constants";
+import Link from "next/link";
+import styles from "./page.module.css";
+import { ResultType } from "@/types/submissionResult";
+import Recommendation from "../ui/recommendation/recommendation";
 
 export default function ResultPage() {
-  const [result, setResult] = useState({});
+  const [result, setResult] = useState<ResultType | null>(null);
 
   if (!process.env.NEXT_PUBLIC_BACKEND_URL) {
     throw new Error("no backend url has been configured");
@@ -57,5 +61,23 @@ export default function ResultPage() {
     submit();
   });
 
-  return <pre>{JSON.stringify(result)}</pre>;
+  return (
+    <div className={`${styles.content}`}>
+      <h1 className={`${styles.title} heading`}>
+        Wir empfehlen folgende Produkte
+      </h1>
+      <div className={styles.recommendations}>
+        {result != null &&
+          result.recommendations.map((recommendation) => (
+            <Recommendation
+              key={recommendation.id}
+              recommendation={recommendation}
+            />
+          ))}
+      </div>
+      <Link href="/" className={`${styles.returnButton} button`}>
+        zum Start
+      </Link>
+    </div>
+  );
 }

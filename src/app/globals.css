@@ -1,5 +1,6 @@
 :root {
-  --color-background: #dff7f2;
+  --color-background-primary: #dff7f2;
+  --color-background-secondary: #f9fffe;
   --color-primary: #fdd9d9;
   --color-text: #2e2e2e;
 
@@ -9,7 +10,7 @@
 }
 
 body {
-  background: var(--color-background);
+  background: var(--color-background-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 

@@ -1,0 +1,17 @@
+.card {
+  border-radius: 8px;
+  background-color: var(--color-background-secondary);
+  padding: 18px;
+}
+
+.name {
+  font-size: 14px;
+}
+
+.category {
+  font-size: 10px;
+}
+
+.description {
+  font-size: 12px;
+}
