@@ -21,7 +21,7 @@ export function useSessionStoredResponses(
 
   useEffect(() => {
     try {
-      sessionStorage.setItem("responses", JSON.stringify(responses));
+      sessionStorage.setItem(RESPONSES_KEY, JSON.stringify(responses));
     } catch {}
   }, [responses]);
 
