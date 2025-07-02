@@ -12,10 +12,18 @@ export default function Questionnaire({
   const [responses, setResponses] = useState<Record<string, string>>({});
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleAnswer = useCallback((questionId: string, choiceId: string) => {
-    setResponses((prev) => ({ ...prev, [questionId]: choiceId }));
-    setCurrentIndex((i) => i + 1);
-  }, []);
+  const handleAnswer = useCallback(
+    (questionId: string, choiceId: string) => {
+      setResponses((prev) => ({ ...prev, [questionId]: choiceId }));
+      setCurrentIndex((i) => {
+        if (i + 1 < questions.length) {
+          i++;
+        }
+        return i;
+      });
+    },
+    [questions.length],
+  );
 
   return (
     <main>
